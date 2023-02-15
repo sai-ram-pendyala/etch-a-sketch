@@ -1,0 +1,19 @@
+.grid {
+    height: auto;
+    width: 640px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.row {
+    flex: 1;
+}
+
+.cell {
+    height: 40px;
+    width: 40px;
+    background-color: blue;
+    box-sizing: border-box;
+    border: 2px solid black;
+}
