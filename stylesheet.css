@@ -3,14 +3,20 @@
     display: flex;
     flex-wrap: wrap;
     box-sizing: content-box;
-    border: 1px solid black;
-    width: 902px;
-    height: 902px;
+    border-top: 0.5px solid black;
+    border-left: 0.5px solid black;
+    width: 642px;
+    height: 642px;
     justify-content: center;
     align-items: center;
 }
   
 .cell {
-    /* border: 0.5px solid red; */
+    border-right: 0.5px solid black;
+    border-bottom: 0.5px solid black;
     box-sizing: border-box;
+}
+
+.hover {
+    background-color: black;
 }
