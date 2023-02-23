@@ -1,6 +1,7 @@
 const rowsRange = document.getElementById('rowsRange');
 const rowsValue = document.getElementById('rowsValue');
 const grid = document.getElementById('grid');
+const btn = document.querySelector('.btn');
 
 rowsValue.textContent = rowsRange.value;
 let clicked = false;
@@ -26,7 +27,7 @@ function createGrid(rows) {
 
 createGrid(rowsRange.value);
 
-const cells = document.querySelectorAll('.cell');
+let cells = document.querySelectorAll('.cell');
 
 rowsRange.addEventListener('input', function() {
     rowsValue.textContent = this.value;
@@ -41,5 +42,10 @@ function hover(evt) {
     if(!grid.contains(evt.target)) return; 
     evt.target.classList.add('hover');  
 }
+
+btn.addEventListener('click', function(){
+    let cells = document.querySelectorAll('.cell');
+    cells.forEach(cell => cell.classList.remove('hover'));
+})
 
 
