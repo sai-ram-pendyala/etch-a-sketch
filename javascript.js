@@ -1,29 +1,26 @@
-let grid = document.createElement('div');
-grid.className = 'grid';
-for(let i = 0; i < 100; i++) {
-    let column = document.createElement('div');
-    column.className = 'column';
-    for(let j = 0; j < 60; j++) {
-        let cell = document.createElement('div');
+const rowsRange = document.getElementById('rowsRange');
+const rowsValue = document.getElementById('rowsValue');
+const grid = document.getElementById('grid');
+
+rowsValue.textContent = rowsRange.value;
+
+function createGrid(rows) {
+    grid.innerHTML = '';
+    const cellSize = 900/rows;
+    console.log(cellSize);
+    let totalCells = rows*rows;
+    while (totalCells--) {
+        const cell = document.createElement('div');
+        cell.style.height = `${cellSize}px`;
+        cell.style.width = `${cellSize}px`;
         cell.className = 'cell';
-        column.appendChild(cell);
+        grid.appendChild(cell);
     }
-    grid.appendChild(column);
 }
-document.body.appendChild(grid);
 
-let down = false;
-const cells = document.querySelectorAll('.cell');
-document.addEventListener('mousedown', function() {
-    down = true;
-})
+createGrid(rowsRange.value);
 
-document.addEventListener('mouseup', function() {
-    down = false;
-})
-
-cells.forEach(cell => cell.addEventListener('mouseover', function(e) {
-    if(down == false)
-        return;
-    e.target.classList.add('hover');
-}))
+rowsRange.addEventListener('input', function() {
+    rowsValue.textContent = this.value;
+    createGrid(this.value);
+});
